@@ -18,7 +18,7 @@ X bio limit: **160 characters**.
 > Live Andes virus tracker. Confirmed cases · deaths · outbreak heatmap · vetted news. Sourced from WHO Disease Outbreak News. EN/ES/PT.
 
 **Profile location field:** `Global` or `Worldwide`
-**Website field:** `https://williamklat.github.io/andesvirustracker/`
+**Website field:** `https://andesvirustracker.github.io/`
 
 ---
 
@@ -35,7 +35,7 @@ X bio limit: **160 characters**.
 > ✓ News feed restricted to WHO, CDC, Reuters, BBC, AP & vetted outlets only
 > ✓ Available in EN / ES / PT
 >
-> 🔗 williamklat.github.io/andesvirustracker
+> 🔗 andesvirustracker.github.io
 
 ---
 
@@ -70,7 +70,7 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 > Source: WHO Disease Outbreak News (DON599)
 > Updated: 6 May 2026
 >
-> Live: williamklat.github.io/andesvirustracker
+> Live: andesvirustracker.github.io
 
 ---
 
@@ -96,7 +96,7 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 > 🔴 Zurich, Switzerland — 1 confirmed case
 > 🔵 Argentina — suspected exposure origin
 >
-> Live heatmap: williamklat.github.io/andesvirustracker
+> Live heatmap: andesvirustracker.github.io
 
 ---
 
@@ -135,7 +135,7 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 >
 > Read the full Disease Outbreak News: [link]
 >
-> Live tracker: williamklat.github.io/andesvirustracker
+> Live tracker: andesvirustracker.github.io
 
 ---
 
@@ -191,7 +191,7 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 >
 > The Andes virus disproportionately affects Spanish- and Portuguese-speaking communities in South America. Information access shouldn't be a barrier.
 >
-> williamklat.github.io/andesvirustracker
+> andesvirustracker.github.io
 
 ---
 
@@ -249,7 +249,7 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 1. Post the pinned tweet → drop the link in 2–3 health-news Reddit threads (r/worldnews, r/news, r/Coronavirus — they accept outbreak content if posted respectfully)
 2. Quote-tweet major outlets covering the cruise ship — add value (e.g. correct stat, link to tracker)
 3. Reply (constructively) to viral hantavirus posts with the live numbers
-4. DM 5 health journalists with one line: "Built a live tracker for the cruise ship cluster — sourced from WHO. Free to use, no signup. williamklat.github.io/andesvirustracker"
+4. DM 5 health journalists with one line: "Built a live tracker for the cruise ship cluster — sourced from WHO. Free to use, no signup. andesvirustracker.github.io"
 
 ### Red flags — don't do these
 - ❌ Don't post identical text repeatedly (X flags this)
@@ -272,14 +272,14 @@ Post these over the first 7 days. Vary the times. **Don't post all in one day** 
 > Countries: [N]
 >
 > Source: [WHO DON link]
-> Live: williamklat.github.io/andesvirustracker
+> Live: andesvirustracker.github.io
 
 ### Template B — News drop reaction
 > [Outlet] reports [1-line summary].
 >
 > What this means for the outbreak: [1 sentence].
 >
-> Tracker updated: williamklat.github.io/andesvirustracker
+> Tracker updated: andesvirustracker.github.io
 
 ### Template C — Educational (every 3 days)
 > [Question hook]

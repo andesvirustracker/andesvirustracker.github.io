@@ -2,7 +2,7 @@
 
 Live tracker for the 2026 Andes hantavirus outbreak — confirmed cases, deaths, outbreak heatmap, and verified news feed.
 
-🌐 **Live site:** https://williamklat.github.io/andesvirustracker/
+🌐 **Live site:** https://andesvirustracker.github.io/
 
 ## Features
 

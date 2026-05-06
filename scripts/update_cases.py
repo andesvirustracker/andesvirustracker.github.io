@@ -47,7 +47,7 @@ def save_cases(data):
 
 
 def fetch(url, timeout=15):
-    headers = {"User-Agent": "AndesVirusTracker/1.0 (+github.com/WilliamKlat/andesvirustracker)"}
+    headers = {"User-Agent": "AndesVirusTracker/1.0 (+github.com/andesvirustracker)"}
     try:
         r = requests.get(url, headers=headers, timeout=timeout)
         r.raise_for_status()
