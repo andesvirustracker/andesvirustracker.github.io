@@ -82,7 +82,7 @@ const TRANSLATIONS = {
     variant_puumala_region: "Northern Europe, Russia",
     variant_puumala_desc: "Carried by bank voles. Causes a milder HFRS form known as nephropathia epidemica. Common in Scandinavia and the Balkans.",
     variant_dobrava_region: "Balkans, Eastern Europe",
-    variant_dobrava_desc: "Carried by yellow-necked field mice. Causes the most severe form of HFRS in Europe with mortality up to 12%.",
+    variant_dobrava_desc: "Carried by yellow-necked field mice. Causes the most severe form of HFRS in Europe with mortality of 5–15%.",
     variant_mortality: "Mortality",
     variant_disease: "Disease",
     // Report
@@ -317,6 +317,48 @@ function initLanguage() {
   applyTranslations(saved);
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
+  });
+  setupDismissibleSwitcher();
+}
+
+function setupDismissibleSwitcher() {
+  document.querySelectorAll('.lang-switcher').forEach(switcher => {
+    if (switcher.querySelector('.lang-close')) return; // already added
+
+    // Create X button
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'lang-close';
+    closeBtn.innerHTML = '&times;';
+    closeBtn.title = 'Hide language switcher';
+    closeBtn.setAttribute('aria-label', 'Hide language switcher');
+    switcher.appendChild(closeBtn);
+
+    // Create reopen globe button (sibling of switcher)
+    const reopenBtn = document.createElement('button');
+    reopenBtn.className = 'lang-reopen';
+    reopenBtn.innerHTML = '🌐';
+    reopenBtn.title = 'Change language';
+    reopenBtn.setAttribute('aria-label', 'Change language');
+    switcher.parentNode.insertBefore(reopenBtn, switcher.nextSibling);
+
+    // Wire events
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switcher.classList.add('hidden');
+      reopenBtn.classList.add('visible');
+      localStorage.setItem('hanta_lang_hidden', '1');
+    });
+    reopenBtn.addEventListener('click', () => {
+      switcher.classList.remove('hidden');
+      reopenBtn.classList.remove('visible');
+      localStorage.removeItem('hanta_lang_hidden');
+    });
+
+    // Apply persisted state
+    if (localStorage.getItem('hanta_lang_hidden') === '1') {
+      switcher.classList.add('hidden');
+      reopenBtn.classList.add('visible');
+    }
   });
 }
 

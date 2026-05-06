@@ -64,12 +64,9 @@ async function initHeatmap() {
     }).addTo(map);
 
     marker.bindPopup(`
-      <div style="font-family: sans-serif; color: #0a0a0a;">
-        <strong style="color: ${color}; font-size: 1rem;">${loc.name}</strong><br>
-        <span style="font-size: 0.85rem;">
-          <strong>${loc.cases || 0}</strong> confirmed cases<br>
-          <strong>${loc.deaths || 0}</strong> deaths
-        </span>
+      <div style="font-family: sans-serif; color: #0a0a0a; max-width: 260px;">
+        <strong style="color: ${color}; font-size: 1rem;">${loc.name}</strong>
+        <p style="font-size: 0.85rem; margin: 0.4rem 0 0 0; color: #333;">${loc.description || ''}</p>
       </div>
     `);
   });

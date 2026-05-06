@@ -2,19 +2,47 @@
   "confirmed": 3,
   "suspected": 5,
   "deaths": 3,
-  "countries": 3,
+  "critically_ill": 1,
+  "countries": 6,
   "change_24h": 1,
   "last_updated": "2026-05-06T17:00:00Z",
-  "outbreak_summary": "Active cluster on the MV Hondius cruise ship anchored off Praia, Cape Verde. Andes hantavirus strain confirmed. Index cases had travelled in Argentina before boarding on 1 April 2026. Additional confirmed case in Zurich, Switzerland.",
+  "outbreak_summary": "Active 2026 Andes hantavirus cluster linked to the Dutch-flagged cruise ship MV Hondius. Index patients had travelled in Argentina before boarding on 1 April 2026. Three deaths reported, one patient in ICU, additional confirmed case in Switzerland.",
+  "case_breakdown": "3 confirmed (2 originally on ship + 1 in Switzerland), 5 suspected (3 still aboard, 2 evacuated). Of the 3 deaths: Case 1 died aboard, Case 2 died in Johannesburg, Case 4 died aboard on 2 May 2026.",
+  "countries_affected": ["Cabo Verde", "Netherlands", "South Africa", "Spain", "Switzerland", "United Kingdom"],
   "sources": [
-    "WHO Disease Outbreak News (DON599)",
-    "Africa CDC",
-    "NPR (May 3 2026)",
-    "Al Jazeera (May 5 2026)"
+    "WHO Disease Outbreak News DON599 (4 May 2026)",
+    "France 24 (6 May 2026)",
+    "NPR (3 May 2026)",
+    "Al Jazeera (5 May 2026)"
   ],
   "locations": [
-    { "name": "MV Hondius (off Praia, Cape Verde)", "lat": 14.91, "lng": -23.51, "cases": 2, "deaths": 3, "intensity": 1.0 },
-    { "name": "Zurich, Switzerland (evacuated case)", "lat": 47.37, "lng": 8.55, "cases": 1, "deaths": 0, "intensity": 0.5 },
-    { "name": "Argentina (suspected exposure origin)", "lat": -34.61, "lng": -58.38, "cases": 0, "deaths": 0, "intensity": 0.3 }
+    {
+      "name": "MV Hondius (off Cabo Verde)",
+      "lat": 14.91,
+      "lng": -23.51,
+      "description": "Cluster epicentre. Dutch-flagged vessel with 147 people aboard (88 passengers, 59 crew, 23 nationalities). 2 deaths occurred aboard.",
+      "intensity": 1.0
+    },
+    {
+      "name": "Johannesburg, South Africa",
+      "lat": -26.20,
+      "lng": 28.04,
+      "description": "Evacuation destination. Case 2 died here. Case 3 in ICU here.",
+      "intensity": 0.7
+    },
+    {
+      "name": "Zurich, Switzerland",
+      "lat": 47.37,
+      "lng": 8.55,
+      "description": "1 confirmed case. Swiss couple disembarked at Saint Helena and returned home end of April; partner being treated.",
+      "intensity": 0.5
+    },
+    {
+      "name": "Argentina (suspected exposure origin)",
+      "lat": -34.61,
+      "lng": -58.38,
+      "description": "Cases 1 and 2 had travelled in Argentina prior to boarding. Andes strain is endemic to Argentina and Chile.",
+      "intensity": 0.4
+    }
   ]
 }
