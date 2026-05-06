@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest News — HantaVirusTracker</title>
+  <meta name="description" content="Live news feed covering hantavirus outbreaks, research, and public health updates from WHO, Reuters, and global agencies.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#0a0a0a" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="32" cy="32" r="10" fill="none" stroke="#dc2626" stroke-width="3"/>
+        <circle cx="32" cy="32" r="4" fill="#dc2626"/>
+      </svg>
+      <span>Hanta<span class="brand-hanta">Virus</span>Tracker</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Tracker</a>
+      <a href="news.html" class="active" data-i18n="nav_news">News</a>
+      <a href="info.html" data-i18n="nav_info">Symptoms & Info</a>
+      <a href="variants.html" data-i18n="nav_variants">Variants</a>
+      <a href="report.html" data-i18n="nav_report">Report a Case</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="alert-banner">
+    <span class="alert-icon">⚠</span>
+    <span data-i18n="alert_banner">ACTIVE OUTBREAK — Andes hantavirus cases confirmed. Avoid rodent-contaminated areas.</span>
+    <span class="alert-icon">⚠</span>
+  </div>
+
+  <main class="container">
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            <span class="icon">📡</span>
+            <span data-i18n="news_title">Latest News</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="news_subtitle">Live feed from WHO, Reuters, and global health agencies</p>
+        </div>
+      </div>
+      <div id="news-list" class="news-list">
+        <div class="news-loading" data-i18n="news_loading">Loading latest news...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer_disclaimer">HantaVirusTracker is an independent tracking project. Data is aggregated from public sources including WHO and CDC. Not affiliated with any government health agency.</p>
+    <p data-i18n="footer_credits">Built for public awareness. Always consult official sources for medical guidance.</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/news.js"></script>
+</body>
+</html>

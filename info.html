@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symptoms & Prevention — HantaVirusTracker</title>
+  <meta name="description" content="Hantavirus symptoms, transmission routes, and prevention guidelines. Critical information for protecting yourself and recognising the disease.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#0a0a0a" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="32" cy="32" r="10" fill="none" stroke="#dc2626" stroke-width="3"/>
+        <circle cx="32" cy="32" r="4" fill="#dc2626"/>
+      </svg>
+      <span>Hanta<span class="brand-hanta">Virus</span>Tracker</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Tracker</a>
+      <a href="news.html" data-i18n="nav_news">News</a>
+      <a href="info.html" class="active" data-i18n="nav_info">Symptoms & Info</a>
+      <a href="variants.html" data-i18n="nav_variants">Variants</a>
+      <a href="report.html" data-i18n="nav_report">Report a Case</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>
+      <span class="highlight" data-i18n="info_title">Symptoms & Prevention</span>
+    </h1>
+    <p data-i18n="info_subtitle">Critical information for protecting yourself and recognising the disease</p>
+  </header>
+
+  <main class="container">
+
+    <section class="info-section">
+      <h2><span>🦠</span> <span data-i18n="info_about_h">What is Hantavirus?</span></h2>
+      <p data-i18n="info_about_p">Hantaviruses are a family of viruses spread mainly by rodents...</p>
+    </section>
+
+    <section class="info-section">
+      <h2><span>🩺</span> <span data-i18n="info_symptoms_h">Early Symptoms</span></h2>
+      <ul data-i18n-list="info_symptoms"></ul>
+    </section>
+
+    <section class="info-section" style="border: 2px solid var(--alert-red);">
+      <h2><span>🚨</span> <span data-i18n="info_late_h">Late Symptoms (CRITICAL)</span></h2>
+      <ul data-i18n-list="info_late"></ul>
+    </section>
+
+    <section class="info-section">
+      <h2><span>🐀</span> <span data-i18n="info_transmission_h">How It Spreads</span></h2>
+      <ul data-i18n-list="info_transmission"></ul>
+    </section>
+
+    <section class="info-section">
+      <h2><span>🛡️</span> <span data-i18n="info_prevention_h">Prevention</span></h2>
+      <ul data-i18n-list="info_prevention"></ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer_disclaimer">HantaVirusTracker is an independent tracking project.</p>
+    <p data-i18n="footer_credits">Built for public awareness.</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

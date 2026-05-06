@@ -1,0 +1,24 @@
+{
+  "confirmed": 247,
+  "suspected": 412,
+  "deaths": 87,
+  "countries": 12,
+  "change_24h": 14,
+  "last_updated": "2026-05-06T17:00:00Z",
+  "locations": [
+    { "name": "Argentina (Patagonia)", "lat": -41.13, "lng": -71.31, "cases": 84, "deaths": 32, "intensity": 1.0 },
+    { "name": "Chile (Aysén)", "lat": -45.57, "lng": -72.07, "cases": 51, "deaths": 19, "intensity": 0.85 },
+    { "name": "Argentina (Buenos Aires)", "lat": -34.61, "lng": -58.38, "cases": 18, "deaths": 5, "intensity": 0.55 },
+    { "name": "United States (New Mexico)", "lat": 34.97, "lng": -105.03, "cases": 22, "deaths": 9, "intensity": 0.65 },
+    { "name": "United States (Arizona)", "lat": 34.05, "lng": -111.09, "cases": 14, "deaths": 5, "intensity": 0.5 },
+    { "name": "United States (Colorado)", "lat": 39.55, "lng": -105.78, "cases": 11, "deaths": 4, "intensity": 0.45 },
+    { "name": "United States (California)", "lat": 36.78, "lng": -119.42, "cases": 9, "deaths": 3, "intensity": 0.4 },
+    { "name": "Brazil (São Paulo)", "lat": -23.55, "lng": -46.63, "cases": 12, "deaths": 4, "intensity": 0.5 },
+    { "name": "Paraguay", "lat": -23.44, "lng": -58.44, "cases": 8, "deaths": 2, "intensity": 0.4 },
+    { "name": "Bolivia", "lat": -16.29, "lng": -63.59, "cases": 6, "deaths": 2, "intensity": 0.35 },
+    { "name": "Canada (Saskatchewan)", "lat": 52.93, "lng": -106.45, "cases": 5, "deaths": 1, "intensity": 0.3 },
+    { "name": "Mexico (Sonora)", "lat": 29.07, "lng": -110.96, "cases": 4, "deaths": 1, "intensity": 0.25 },
+    { "name": "Finland", "lat": 61.92, "lng": 25.74, "cases": 2, "deaths": 0, "intensity": 0.2 },
+    { "name": "Russia (Bashkortostan)", "lat": 54.7, "lng": 56.0, "cases": 1, "deaths": 0, "intensity": 0.15 }
+  ]
+}
