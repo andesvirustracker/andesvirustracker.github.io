@@ -69,6 +69,11 @@ body {
   color: var(--alert-red);
 }
 
+.brand-andes {
+  letter-spacing: 1.5px;
+  font-weight: 900;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;

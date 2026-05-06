@@ -1,5 +1,5 @@
 """
-HantaVirusTracker — Conservative auto-update script.
+ANDES Virus Tracker — Conservative auto-update script.
 
 This script DELIBERATELY does not change the case numbers in data/cases.json
 unless it can confirm them from a primary WHO Disease Outbreak News (DON) page
@@ -47,7 +47,7 @@ def save_cases(data):
 
 
 def fetch(url, timeout=15):
-    headers = {"User-Agent": "HantaVirusTracker/1.0 (+github.com/WilliamKlat/hantavirus-tracker)"}
+    headers = {"User-Agent": "AndesVirusTracker/1.0 (+github.com/WilliamKlat/andesvirustracker)"}
     try:
         r = requests.get(url, headers=headers, timeout=timeout)
         r.raise_for_status()

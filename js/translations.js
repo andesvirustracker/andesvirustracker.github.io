@@ -1,4 +1,4 @@
-// HantaVirusTracker — Translations (EN / ES / PT)
+// ANDES Virus Tracker — Translations (EN / ES / PT)
 
 const TRANSLATIONS = {
   en: {
@@ -106,7 +106,7 @@ const TRANSLATIONS = {
     primary_sources_h: "Primary Sources",
     sources_disclaimer: "Auto-update workflow runs every 30 minutes but does NOT silently change figures. It only flags new WHO Disease Outbreak News items for human review. Numbers are updated only when verified against a primary source.",
     // Footer
-    footer_disclaimer: "HantaVirusTracker is an independent tracking project. Data is aggregated from public sources including WHO and CDC. Not affiliated with any government health agency.",
+    footer_disclaimer: "ANDES Virus Tracker is an independent tracking project. Data is aggregated from public sources including WHO and CDC. Not affiliated with any government health agency.",
     footer_credits: "Built for public awareness. Always consult official sources for medical guidance.",
     last_updated: "Last updated:"
   },
@@ -206,7 +206,7 @@ const TRANSLATIONS = {
     verified_by_label: "Última verificación manual por el editor:",
     primary_sources_h: "Fuentes Primarias",
     sources_disclaimer: "El flujo de actualización automática se ejecuta cada 30 minutos pero NO cambia silenciosamente las cifras. Solo marca nuevos elementos de Noticias de Brotes de Enfermedades de la OMS para revisión humana. Las cifras se actualizan solo cuando se verifican contra una fuente primaria.",
-    footer_disclaimer: "HantaVirusTracker es un proyecto de seguimiento independiente. Los datos se agregan de fuentes públicas incluyendo OMS y CDC. No afiliado con ninguna agencia gubernamental de salud.",
+    footer_disclaimer: "ANDES Virus Tracker es un proyecto de seguimiento independiente. Los datos se agregan de fuentes públicas incluyendo OMS y CDC. No afiliado con ninguna agencia gubernamental de salud.",
     footer_credits: "Construido para concienciación pública. Siempre consulte fuentes oficiales para orientación médica.",
     last_updated: "Última actualización:"
   },
@@ -306,7 +306,7 @@ const TRANSLATIONS = {
     verified_by_label: "Última verificação manual pelo editor:",
     primary_sources_h: "Fontes Primárias",
     sources_disclaimer: "O fluxo de atualização automática é executado a cada 30 minutos mas NÃO altera silenciosamente os números. Apenas sinaliza novos itens de Notícias de Surtos de Doenças da OMS para revisão humana. Os números são atualizados apenas quando verificados contra uma fonte primária.",
-    footer_disclaimer: "HantaVirusTracker é um projeto de rastreamento independente. Os dados são agregados de fontes públicas incluindo OMS e CDC. Não afiliado a nenhuma agência governamental de saúde.",
+    footer_disclaimer: "ANDES Virus Tracker é um projeto de rastreamento independente. Os dados são agregados de fontes públicas incluindo OMS e CDC. Não afiliado a nenhuma agência governamental de saúde.",
     footer_credits: "Construído para conscientização pública. Sempre consulte fontes oficiais para orientação médica.",
     last_updated: "Última atualização:"
   }
