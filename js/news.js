@@ -1,15 +1,53 @@
-// HantaVirusTracker — Live news feed via rss2json (free, no API key)
+// HantaVirusTracker — News feed restricted to vetted authoritative sources only.
+// Articles from any other domain are filtered out before display.
+
+const TRUSTED_DOMAINS = [
+  'who.int',
+  'cdc.gov',
+  'ecdc.europa.eu',
+  'paho.org',
+  'reuters.com',
+  'apnews.com',
+  'bbc.com',
+  'bbc.co.uk',
+  'npr.org',
+  'france24.com',
+  'aljazeera.com',
+  'washingtonpost.com',
+  'nytimes.com',
+  'cnn.com',
+  'theguardian.com',
+  'nbcnews.com',
+  'cbsnews.com',
+  'ctvnews.ca',
+  'africacdc.org',
+  'contagionlive.com'
+];
+
+// Build site: filter for Google News RSS — only return articles from trusted domains
+const SITE_FILTER = TRUSTED_DOMAINS.map(d => `site:${d}`).join('+OR+');
 
 const RSS_FEEDS = [
   {
-    url: 'https://news.google.com/rss/search?q=hantavirus&hl=en-US&gl=US&ceid=US:en',
-    source: 'Google News'
+    url: `https://news.google.com/rss/search?q=hantavirus+(${SITE_FILTER})&hl=en-US&gl=US&ceid=US:en`,
+    source: 'Vetted Sources'
   },
   {
-    url: 'https://news.google.com/rss/search?q=%22andes+virus%22+OR+%22hantavirus+outbreak%22&hl=en-US&gl=US&ceid=US:en',
-    source: 'Outbreak News'
+    url: `https://news.google.com/rss/search?q=%22Andes+virus%22+OR+%22MV+Hondius%22+(${SITE_FILTER})&hl=en-US&gl=US&ceid=US:en`,
+    source: 'Vetted Sources'
   }
 ];
+
+function isTrustedLink(link) {
+  if (!link) return false;
+  try {
+    const url = new URL(link);
+    const hostname = url.hostname.replace(/^www\./, '');
+    return TRUSTED_DOMAINS.some(d => hostname === d || hostname.endsWith('.' + d));
+  } catch (e) {
+    return false;
+  }
+}
 
 async function loadNews() {
   const list = document.getElementById('news-list');
@@ -22,7 +60,7 @@ async function loadNews() {
     const allItems = [];
     for (const feed of RSS_FEEDS) {
       try {
-        const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&count=10`;
+        const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&count=20`;
         const res = await fetch(url);
         const data = await res.json();
         if (data.status === 'ok' && data.items) {
@@ -35,15 +73,18 @@ async function loadNews() {
       }
     }
 
-    if (allItems.length === 0) {
+    // Filter: keep only links from trusted domains
+    const trusted = allItems.filter(item => isTrustedLink(item.link));
+
+    if (trusted.length === 0) {
       list.innerHTML = `<div class="news-error">${t.news_error}</div>`;
       return;
     }
 
     // Dedupe by title
     const seen = new Set();
-    const unique = allItems.filter(item => {
-      const key = item.title.toLowerCase().trim();
+    const unique = trusted.filter(item => {
+      const key = item.title.toLowerCase().trim().slice(0, 80);
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
@@ -58,17 +99,21 @@ async function loadNews() {
         year: 'numeric', month: 'short', day: 'numeric'
       });
       const desc = item.description
-        ? item.description.replace(/<[^>]*>/g, '').slice(0, 200) + (item.description.length > 200 ? '...' : '')
+        ? item.description.replace(/<[^>]*>/g, '').slice(0, 220) + (item.description.length > 220 ? '...' : '')
         : '';
-      const sourceMatch = item.title.match(/-\s*([^-]+)$/);
-      const sourceName = sourceMatch ? sourceMatch[1].trim() : item._source;
+      // Pull domain from link for source label
+      let domain = '';
+      try {
+        domain = new URL(item.link).hostname.replace(/^www\./, '');
+      } catch (e) {}
       const cleanTitle = item.title.replace(/\s*-\s*[^-]+$/, '');
       return `
         <div class="news-item">
           <a href="${item.link}" target="_blank" rel="noopener noreferrer">${cleanTitle}</a>
           <div class="news-meta">
-            <span class="news-source">${sourceName}</span>
+            <span class="news-source">${domain || 'Source'}</span>
             <span>${dateStr}</span>
+            <span style="color: var(--safe-green);">✓ Verified Source</span>
           </div>
           ${desc ? `<div class="news-description">${desc}</div>` : ''}
         </div>

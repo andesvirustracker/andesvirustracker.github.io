@@ -107,6 +107,41 @@
       </p>
     </section>
 
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            <span class="icon">✓</span>
+            <span data-i18n="sources_title">Data Verification &amp; Sources</span>
+          </h2>
+          <p class="section-subtitle" data-i18n="sources_subtitle">Every figure on this site is traceable to an authoritative source.</p>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2 style="font-size: 1.2rem;" data-i18n="outbreak_h">Current Outbreak Summary</h2>
+        <p id="outbreak-summary" style="margin-bottom: 1rem;">—</p>
+
+        <h2 style="font-size: 1.2rem;" data-i18n="countries_affected_h">Countries Currently Involved</h2>
+        <p id="countries-list" style="margin-bottom: 1rem; color: var(--text-secondary);">—</p>
+
+        <h2 style="font-size: 1.2rem;" data-i18n="verified_h">Verification</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+          <strong data-i18n="verified_by_label">Last manually verified by editor:</strong> <span id="verified-date">—</span>
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          <span id="verified-by">—</span>
+        </p>
+
+        <h2 style="font-size: 1.2rem;" data-i18n="primary_sources_h">Primary Sources</h2>
+        <ul id="sources-list" style="color: var(--text-secondary);"></ul>
+
+        <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;" data-i18n="sources_disclaimer">
+          Auto-update workflow runs every 30 minutes but does NOT silently change figures. It only flags new WHO Disease Outbreak News items for human review. Numbers are updated only when verified against a primary source.
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">

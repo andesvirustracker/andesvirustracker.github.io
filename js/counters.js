@@ -22,6 +22,26 @@ async function loadCases() {
       });
       els.forEach(el => el.textContent = fmt);
     }
+    if (data.verified_by) {
+      const el = document.getElementById('verified-by');
+      if (el) el.textContent = data.verified_by;
+    }
+    if (data.verification_date) {
+      const el = document.getElementById('verified-date');
+      if (el) el.textContent = data.verification_date;
+    }
+    if (Array.isArray(data.sources)) {
+      const el = document.getElementById('sources-list');
+      if (el) el.innerHTML = data.sources.map(s => `<li>${s}</li>`).join('');
+    }
+    if (Array.isArray(data.countries_affected)) {
+      const el = document.getElementById('countries-list');
+      if (el) el.textContent = data.countries_affected.join(', ');
+    }
+    if (data.outbreak_summary) {
+      const el = document.getElementById('outbreak-summary');
+      if (el) el.textContent = data.outbreak_summary;
+    }
   } catch (err) {
     console.error('Failed to load case data:', err);
   }
