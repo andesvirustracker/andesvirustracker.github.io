@@ -1,122 +1,129 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
   <defs>
-    <radialGradient id="bgRad" cx="30%" cy="50%" r="80%">
-      <stop offset="0%" stop-color="#2a0808"/>
-      <stop offset="50%" stop-color="#0a0202"/>
-      <stop offset="100%" stop-color="#000000"/>
-    </radialGradient>
-    <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#000000" stop-opacity="0.85"/>
-      <stop offset="50%" stop-color="#000000" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#FFF5F5"/>
+      <stop offset="100%" stop-color="#FEF2F2"/>
     </linearGradient>
-    <radialGradient id="dotPulse" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.9"/>
-      <stop offset="50%" stop-color="#dc2626" stop-opacity="0.3"/>
+    <radialGradient id="virusGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.15"/>
       <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
     </radialGradient>
-    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <radialGradient id="dotPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#dc2626" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softDrop" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="rgba(220,38,38,0.15)"/>
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1500" height="500" fill="url(#bgRad)"/>
+  <!-- White/light background -->
+  <rect width="1500" height="500" fill="url(#bgGrad)"/>
 
-  <!-- Decorative virus particles (top right and bottom left) -->
-  <g opacity="0.18" transform="translate(1280, 100)">
-    <circle r="60" fill="#dc2626"/>
-    <g fill="#dc2626">
-      <circle cx="60" cy="0" r="6"/>
-      <circle cx="-60" cy="0" r="6"/>
-      <circle cx="0" cy="60" r="6"/>
-      <circle cx="0" cy="-60" r="6"/>
-      <circle cx="42" cy="42" r="5"/>
-      <circle cx="-42" cy="42" r="5"/>
-      <circle cx="42" cy="-42" r="5"/>
-      <circle cx="-42" cy="-42" r="5"/>
-    </g>
-  </g>
-  <g opacity="0.10" transform="translate(120, 420)">
-    <circle r="40" fill="#dc2626"/>
-    <g fill="#dc2626">
-      <circle cx="40" cy="0" r="4"/>
-      <circle cx="-40" cy="0" r="4"/>
-      <circle cx="0" cy="40" r="4"/>
-      <circle cx="0" cy="-40" r="4"/>
-    </g>
+  <!-- Subtle grid pattern -->
+  <g stroke="#E2E8F0" stroke-width="0.8" opacity="0.6">
+    <line x1="0" y1="100" x2="1500" y2="100"/>
+    <line x1="0" y1="200" x2="1500" y2="200"/>
+    <line x1="0" y1="300" x2="1500" y2="300"/>
+    <line x1="0" y1="400" x2="1500" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="800" y1="0" x2="800" y2="500"/>
+    <line x1="1000" y1="0" x2="1000" y2="500"/>
+    <line x1="1200" y1="0" x2="1200" y2="500"/>
+    <line x1="1400" y1="0" x2="1400" y2="500"/>
   </g>
 
-  <!-- World map silhouette (right side, simplified continents) -->
-  <g transform="translate(820, 120) scale(0.6)" opacity="0.35">
-    <!-- North America -->
-    <path d="M 50 80 Q 100 50 180 60 Q 240 70 270 110 Q 280 150 250 180 L 230 200 Q 200 195 170 200 L 140 220 Q 100 200 80 170 Q 60 130 50 80 Z" fill="#374151"/>
-    <!-- South America -->
-    <path d="M 230 230 Q 260 240 280 280 Q 290 340 270 410 Q 250 470 230 490 Q 210 470 200 420 Q 195 360 210 300 Q 220 260 230 230 Z" fill="#374151"/>
-    <!-- Europe -->
-    <path d="M 480 80 Q 540 70 580 90 Q 600 110 580 140 Q 540 150 500 145 Q 470 130 470 100 Q 470 85 480 80 Z" fill="#374151"/>
-    <!-- Africa -->
-    <path d="M 500 170 Q 560 160 590 200 Q 610 260 600 320 Q 580 380 540 410 Q 500 410 470 380 Q 450 320 460 250 Q 480 200 500 170 Z" fill="#374151"/>
-    <!-- Asia -->
-    <path d="M 620 70 Q 730 60 850 100 Q 920 130 940 180 Q 920 210 850 220 Q 760 215 680 200 Q 620 170 605 130 Q 600 95 620 70 Z" fill="#374151"/>
-    <!-- Australia -->
-    <path d="M 850 320 Q 920 310 970 340 Q 990 370 960 390 Q 900 400 860 385 Q 830 365 850 320 Z" fill="#374151"/>
+  <!-- Red accent stripe at top -->
+  <rect x="0" y="0" width="1500" height="6" fill="#dc2626"/>
+
+  <!-- World map silhouette (right side, decorative) -->
+  <g transform="translate(900, 60) scale(0.75)" opacity="0.08" fill="#0F172A">
+    <path d="M 50 80 Q 100 50 180 60 Q 240 70 270 110 Q 280 150 250 180 L 230 200 Q 200 195 170 200 L 140 220 Q 100 200 80 170 Q 60 130 50 80 Z"/>
+    <path d="M 230 230 Q 260 240 280 280 Q 290 340 270 410 Q 250 470 230 490 Q 210 470 200 420 Q 195 360 210 300 Q 220 260 230 230 Z"/>
+    <path d="M 480 80 Q 540 70 580 90 Q 600 110 580 140 Q 540 150 500 145 Q 470 130 470 100 Q 470 85 480 80 Z"/>
+    <path d="M 500 170 Q 560 160 590 200 Q 610 260 600 320 Q 580 380 540 410 Q 500 410 470 380 Q 450 320 460 250 Q 480 200 500 170 Z"/>
+    <path d="M 620 70 Q 730 60 850 100 Q 920 130 940 180 Q 920 210 850 220 Q 760 215 680 200 Q 620 170 605 130 Q 600 95 620 70 Z"/>
+    <path d="M 850 320 Q 920 310 970 340 Q 990 370 960 390 Q 900 400 860 385 Q 830 365 850 320 Z"/>
   </g>
 
-  <!-- Outbreak hotspot dots with pulse halos (positioned over the world map) -->
-  <!-- Cape Verde / MV Hondius (Atlantic, off west Africa) -->
-  <g transform="translate(1080, 240)">
-    <circle r="35" fill="url(#dotPulse)"/>
-    <circle r="9" fill="#dc2626"/>
-    <circle r="9" fill="none" stroke="#fff" stroke-width="1.5"/>
+  <!-- Outbreak hotspot dots — all in CENTER/RIGHT zone (safe from profile pic overlap) -->
+  <!-- Cape Verde / Atlantic -->
+  <g transform="translate(780, 270)">
+    <circle r="42" fill="url(#dotPulse)"/>
+    <circle r="11" fill="#dc2626"/>
+    <circle r="11" fill="none" stroke="white" stroke-width="2"/>
   </g>
-  <!-- Switzerland (central Europe) -->
-  <g transform="translate(1135, 168)">
-    <circle r="22" fill="url(#dotPulse)"/>
-    <circle r="6" fill="#dc2626"/>
-    <circle r="6" fill="none" stroke="#fff" stroke-width="1.2"/>
-  </g>
-  <!-- Argentina (South America) -->
-  <g transform="translate(975, 380)">
+  <!-- Switzerland -->
+  <g transform="translate(1060, 165)">
     <circle r="28" fill="url(#dotPulse)"/>
     <circle r="7" fill="#dc2626"/>
-    <circle r="7" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <circle r="7" fill="none" stroke="white" stroke-width="1.5"/>
   </g>
   <!-- South Africa -->
-  <g transform="translate(1140, 380)">
-    <circle r="22" fill="url(#dotPulse)"/>
-    <circle r="6" fill="#dc2626"/>
-    <circle r="6" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <g transform="translate(1160, 310)">
+    <circle r="28" fill="url(#dotPulse)"/>
+    <circle r="7" fill="#dc2626"/>
+    <circle r="7" fill="none" stroke="white" stroke-width="1.5"/>
+  </g>
+  <!-- Argentina -->
+  <g transform="translate(920, 390)">
+    <circle r="32" fill="url(#dotPulse)"/>
+    <circle r="8" fill="#dc2626"/>
+    <circle r="8" fill="none" stroke="white" stroke-width="1.5"/>
   </g>
 
-  <!-- Left-side overlay for text legibility -->
-  <rect width="800" height="500" fill="url(#overlay)"/>
-
-  <!-- LIVE indicator pill -->
-  <g transform="translate(80, 120)">
-    <rect x="0" y="0" width="220" height="36" rx="18" fill="#dc2626" opacity="0.18" stroke="#dc2626" stroke-width="1.5"/>
-    <circle cx="22" cy="18" r="6" fill="#dc2626"/>
-    <text x="40" y="24" fill="#fca5a5" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="13" letter-spacing="2">LIVE OUTBREAK MONITOR</text>
+  <!-- Virus particle decoration (top-right, decorative) -->
+  <g transform="translate(1420, 80)" opacity="0.12">
+    <circle r="55" fill="#dc2626"/>
+    <g fill="#dc2626">
+      <circle cx="55" cy="0" r="7"/><circle cx="-55" cy="0" r="7"/>
+      <circle cx="0" cy="55" r="7"/><circle cx="0" cy="-55" r="7"/>
+      <circle cx="39" cy="39" r="6"/><circle cx="-39" cy="39" r="6"/>
+      <circle cx="39" cy="-39" r="6"/><circle cx="-39" cy="-39" r="6"/>
+    </g>
   </g>
 
-  <!-- Brand: ANDES Virus Tracker -->
-  <text x="80" y="240" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="78" letter-spacing="4" filter="url(#textGlow)">ANDES</text>
-  <text x="80" y="310" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="42" letter-spacing="2">
+  <!-- LIVE badge — positioned top-left but high up (well above profile pic overlap zone) -->
+  <g transform="translate(60, 30)">
+    <rect x="0" y="0" width="200" height="34" rx="17" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="1.5"/>
+    <circle cx="20" cy="17" r="5.5" fill="#dc2626"/>
+    <text x="36" y="23" fill="#991B1B" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="2">LIVE OUTBREAK MONITOR</text>
+  </g>
+
+  <!-- Main brand: ANDES — left side, positioned high enough to be fully clear -->
+  <text x="60" y="170" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="86" letter-spacing="3" filter="url(#softDrop)">ANDES</text>
+  <text x="60" y="230" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="40" letter-spacing="1">
     <tspan fill="#dc2626" font-weight="900">VIRUS</tspan> TRACKER
   </text>
 
-  <!-- Tagline -->
-  <text x="80" y="360" fill="#d1d5db" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="20" letter-spacing="0.5">Live tracking of the 2026 Andes hantavirus outbreak.</text>
-  <text x="80" y="385" fill="#9ca3af" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="17" letter-spacing="0.3">Verified from WHO Disease Outbreak News &amp; primary sources.</text>
+  <!-- Tagline — moved up so it's well clear of the bottom-left profile pic area -->
+  <text x="60" y="278" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="18" letter-spacing="0.3">Live tracking of the 2026 Andes hantavirus outbreak.</text>
+  <text x="60" y="302" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="15" letter-spacing="0.2">Aggregated from public health reports. Independent.</text>
 
-  <!-- URL -->
-  <g transform="translate(80, 420)">
-    <rect width="6" height="40" fill="#dc2626"/>
-    <text x="20" y="20" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="1.5">VISIT THE TRACKER</text>
-    <text x="20" y="40" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="22" letter-spacing="0.5">andesvirustracker.github.io</text>
+  <!-- Feature pills — sit in the middle, clear of profile pic -->
+  <g transform="translate(60, 324)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="148" height="30" rx="15" fill="#FEF2F2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="74" y="20" text-anchor="middle" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">📊 Live Case Counter</text>
+    <!-- Pill 2 -->
+    <rect x="158" y="0" width="148" height="30" rx="15" fill="#FEF2F2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="232" y="20" text-anchor="middle" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">🗺️ Global Heatmap</text>
+    <!-- Pill 3 -->
+    <rect x="316" y="0" width="148" height="30" rx="15" fill="#FEF2F2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="390" y="20" text-anchor="middle" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">📰 Vetted News Feed</text>
   </g>
+
+  <!-- URL — moved to the right side to be fully visible and away from profile pic -->
+  <g transform="translate(580, 400)">
+    <rect x="0" y="0" width="5" height="50" fill="#dc2626" rx="2"/>
+    <text x="20" y="22" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5">LIVE TRACKER</text>
+    <text x="20" y="45" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="0.3">andesvirustracker.github.io</text>
+  </g>
+
+  <!-- EN / ES / PT label — right side -->
+  <text x="1430" y="460" text-anchor="end" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="13" letter-spacing="1">EN · ES · PT</text>
 </svg>

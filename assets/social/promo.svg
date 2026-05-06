@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF0F0"/>
+    </linearGradient>
+    <linearGradient id="leftPanel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#991B1B"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <radialGradient id="dotPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="virusCore" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </radialGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="rgba(15,23,42,0.12)"/>
+    </filter>
+    <filter id="virusShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="rgba(220,38,38,0.3)"/>
+    </filter>
+    <clipPath id="roundedCard">
+      <rect width="1200" height="630" rx="24"/>
+    </clipPath>
+  </defs>
+
+  <!-- Card background -->
+  <rect width="1200" height="630" rx="24" fill="url(#bgGrad)" filter="url(#cardShadow)"/>
+
+  <!-- Subtle dot grid pattern -->
+  <g opacity="0.07">
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#DC2626"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#dots)"/>
+  </g>
+
+  <!-- Red left accent panel -->
+  <rect x="0" y="0" width="420" height="630" fill="url(#leftPanel)" rx="24"/>
+  <rect x="380" y="0" width="40" height="630" fill="url(#leftPanel)"/>
+
+  <!-- Virus particle on left panel -->
+  <g transform="translate(210, 175)" filter="url(#virusShadow)">
+    <!-- Spikes -->
+    <g fill="rgba(255,255,255,0.35)">
+      <g transform="rotate(0)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(30)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(60)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(90)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(120)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(150)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(180)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(210)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(240)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(270)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(300)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+      <g transform="rotate(330)"><rect x="-4" y="-82" width="8" height="22" rx="4"/><circle cx="0" cy="-87" r="7"/></g>
+    </g>
+    <!-- Body -->
+    <circle r="68" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <circle r="50" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+    <circle r="30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <circle r="14" fill="rgba(255,255,255,0.8)"/>
+  </g>
+
+  <!-- LIVE badge on left panel -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="160" height="30" rx="15" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <circle cx="18" cy="15" r="5" fill="white" opacity="0.9"/>
+    <text x="32" y="20" fill="white" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="2" opacity="0.95">LIVE MONITORING</text>
+  </g>
+
+  <!-- ANDES VIRUS TRACKER text on left panel -->
+  <text x="50" y="400" fill="white" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="56" letter-spacing="2" opacity="0.95">ANDES</text>
+  <text x="50" y="445" fill="rgba(255,255,255,0.85)" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="28" letter-spacing="1">VIRUS TRACKER</text>
+
+  <!-- URL on left panel -->
+  <text x="50" y="500" fill="rgba(255,255,255,0.65)" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5">andesvirustracker.github.io</text>
+
+  <!-- EN/ES/PT on left panel -->
+  <text x="50" y="570" fill="rgba(255,255,255,0.5)" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="13" letter-spacing="1.5">EN · ES · PT</text>
+
+  <!-- RIGHT SIDE — Feature showcase -->
+
+  <!-- Headline -->
+  <text x="460" y="80" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">2026 Andes Hantavirus — Live Public Tracker</text>
+  <text x="460" y="108" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="16">Independent. Aggregated from public health reports.</text>
+
+  <!-- Divider -->
+  <line x1="460" y1="126" x2="1150" y2="126" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- STATS ROW -->
+  <!-- Confirmed -->
+  <g transform="translate(460, 148)">
+    <rect x="0" y="0" width="210" height="105" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="210" height="4" rx="2" fill="#DC2626"/>
+    <text x="105" y="42" text-anchor="middle" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="10" letter-spacing="2">CONFIRMED CASES</text>
+    <text x="105" y="82" text-anchor="middle" fill="#DC2626" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="44">3</text>
+  </g>
+
+  <!-- Suspected -->
+  <g transform="translate(688, 148)">
+    <rect x="0" y="0" width="210" height="105" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="210" height="4" rx="2" fill="#EA580C"/>
+    <text x="105" y="42" text-anchor="middle" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="10" letter-spacing="2">SUSPECTED CASES</text>
+    <text x="105" y="82" text-anchor="middle" fill="#EA580C" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="44">5</text>
+  </g>
+
+  <!-- Deaths -->
+  <g transform="translate(916, 148)">
+    <rect x="0" y="0" width="210" height="105" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="210" height="4" rx="2" fill="#7F1D1D"/>
+    <text x="105" y="42" text-anchor="middle" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="10" letter-spacing="2">CONFIRMED DEATHS</text>
+    <text x="105" y="82" text-anchor="middle" fill="#7F1D1D" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="44">3</text>
+  </g>
+
+  <!-- Countries -->
+  <g transform="translate(1144, 148)">
+    <rect x="0" y="0" width="0" height="105" rx="14"/>
+  </g>
+
+  <!-- Countries inline -->
+  <g transform="translate(460, 270)">
+    <rect x="0" y="0" width="680" height="40" rx="10" fill="#FEF2F2" stroke="rgba(220,38,38,0.2)" stroke-width="1"/>
+    <text x="340" y="26" text-anchor="middle" fill="#991B1B" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="0.5">6 countries affected · MV Hondius cruise ship · human-to-human spread possible</text>
+  </g>
+
+  <!-- FEATURES section -->
+  <text x="460" y="352" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="18" letter-spacing="-0.3">What the tracker includes:</text>
+
+  <!-- Feature rows -->
+  <!-- Row 1 -->
+  <g transform="translate(460, 370)">
+    <circle cx="10" cy="10" r="10" fill="#FEF2F2"/>
+    <text x="10" y="14.5" text-anchor="middle" font-size="11">📊</text>
+    <text x="30" y="15" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="14">Live case counter — updated from public health reports</text>
+  </g>
+  <g transform="translate(460, 400)">
+    <circle cx="10" cy="10" r="10" fill="#FEF2F2"/>
+    <text x="10" y="14.5" text-anchor="middle" font-size="11">🗺️</text>
+    <text x="30" y="15" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="14">Global heatmap showing outbreak hotspots by region</text>
+  </g>
+  <g transform="translate(460, 430)">
+    <circle cx="10" cy="10" r="10" fill="#FEF2F2"/>
+    <text x="10" y="14.5" text-anchor="middle" font-size="11">📰</text>
+    <text x="30" y="15" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="14">News feed — vetted outlets only (WHO, Reuters, BBC, AP…)</text>
+  </g>
+  <g transform="translate(460, 460)">
+    <circle cx="10" cy="10" r="10" fill="#FEF2F2"/>
+    <text x="10" y="14.5" text-anchor="middle" font-size="11">🔬</text>
+    <text x="30" y="15" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="14">Variant comparison — Andes vs Sin Nombre vs Seoul</text>
+  </g>
+  <g transform="translate(460, 490)">
+    <circle cx="10" cy="10" r="10" fill="#FEF2F2"/>
+    <text x="10" y="14.5" text-anchor="middle" font-size="11">📝</text>
+    <text x="30" y="15" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="14">Symptom guide, transmission info &amp; case reporting form</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="460" y1="530" x2="1150" y2="530" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Bottom: URL + no affiliation -->
+  <text x="460" y="568" fill="#DC2626" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="18" letter-spacing="0.3">andesvirustracker.github.io</text>
+  <text x="460" y="592" fill="#94A3B8" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="13">Free · No signup · No ads · Not affiliated with any health agency</text>
+</svg>

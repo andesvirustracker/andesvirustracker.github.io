@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ANDES Virus Tracker — Live Outbreak Monitor</title>
-  <meta name="description" content="Live tracking of the 2026 Andes hantavirus outbreak — confirmed cases, deaths, and outbreak hotspots. Verified from WHO Disease Outbreak News.">
+  <meta name="description" content="Live tracking of the 2026 Andes hantavirus outbreak — confirmed cases, deaths, and outbreak hotspots sourced from public health reports.">
   <meta name="keywords" content="andes virus, andes hantavirus, outbreak tracker, hantavirus pulmonary syndrome, HPS, MV Hondius, Cape Verde outbreak, Argentina">
   <meta property="og:title" content="ANDES Virus Tracker — Live Outbreak Monitor">
-  <meta property="og:description" content="Live tracking of the 2026 Andes hantavirus outbreak — verified from WHO and primary sources.">
+  <meta property="og:description" content="Live tracking of the 2026 Andes hantavirus outbreak — aggregated from public health reports.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
@@ -18,7 +18,7 @@
   <nav class="navbar">
     <a href="index.html" class="brand">
       <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="30" fill="#0a0a0a" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="32" cy="32" r="30" fill="#0F172A" stroke="#dc2626" stroke-width="2"/>
         <circle cx="32" cy="32" r="10" fill="none" stroke="#dc2626" stroke-width="3"/>
         <circle cx="32" cy="32" r="4" fill="#dc2626"/>
       </svg>
@@ -27,7 +27,7 @@
     <div class="nav-links">
       <a href="index.html" class="active" data-i18n="nav_home">Tracker</a>
       <a href="news.html" data-i18n="nav_news">News</a>
-      <a href="info.html" data-i18n="nav_info">Symptoms & Info</a>
+      <a href="info.html" data-i18n="nav_info">Symptoms &amp; Info</a>
       <a href="variants.html" data-i18n="nav_variants">Variants</a>
       <a href="report.html" data-i18n="nav_report">Report a Case</a>
       <div class="lang-switcher">
@@ -39,41 +39,42 @@
   </nav>
 
   <header class="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-status">
       <span class="live-dot"></span>
       <span data-i18n="hero_status">LIVE OUTBREAK MONITORING</span>
     </div>
     <h1>
-      <span class="highlight" data-i18n="hero_title_1">Hantavirus</span>
+      <span class="highlight" data-i18n="hero_title_1">Andes Virus</span>
       <br>
       <span data-i18n="hero_title_2">Outbreak Tracker</span>
     </h1>
-    <p data-i18n="hero_subtitle">Real-time tracking of confirmed cases, deaths, and outbreak hotspots worldwide. Auto-updated from WHO and CDC every 30 minutes.</p>
+    <p data-i18n="hero_subtitle">Real-time tracking of confirmed cases, deaths, and outbreak hotspots worldwide. Auto-checked every 30 minutes from public health reports.</p>
   </header>
 
   <main class="container">
 
     <section class="stats-grid">
-      <div class="stat-card critical">
+      <div class="stat-card critical fade-in-up delay-1">
         <div class="stat-label" data-i18n="stat_confirmed">Confirmed Cases</div>
         <div class="stat-value red" id="count-confirmed">0</div>
         <div class="stat-change up" id="change-confirmed">▲ 0</div>
       </div>
-      <div class="stat-card warning">
+      <div class="stat-card warning fade-in-up delay-2">
         <div class="stat-label" data-i18n="stat_unconfirmed">Suspected Cases</div>
         <div class="stat-value orange" id="count-suspected">0</div>
       </div>
-      <div class="stat-card danger">
+      <div class="stat-card danger fade-in-up delay-3">
         <div class="stat-label" data-i18n="stat_deaths">Confirmed Deaths</div>
         <div class="stat-value dark-red" id="count-deaths">0</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card fade-in-up delay-4">
         <div class="stat-label" data-i18n="stat_countries">Affected Countries</div>
         <div class="stat-value" id="count-countries">0</div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section fade-in-up">
       <div class="section-header">
         <div>
           <h2 class="section-title">
@@ -107,7 +108,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="section fade-in-up">
       <div class="section-header">
         <div>
           <h2 class="section-title">
@@ -119,24 +120,24 @@
       </div>
 
       <div class="info-section">
-        <h2 style="font-size: 1.2rem;" data-i18n="outbreak_h">Current Outbreak Summary</h2>
-        <p id="outbreak-summary" style="margin-bottom: 1rem;">—</p>
+        <h2 style="font-size: 1.1rem;" data-i18n="outbreak_h">Current Outbreak Summary</h2>
+        <p id="outbreak-summary" style="margin-bottom: 1.25rem;">—</p>
 
-        <h2 style="font-size: 1.2rem;" data-i18n="countries_affected_h">Countries Currently Involved</h2>
-        <p id="countries-list" style="margin-bottom: 1rem; color: var(--text-secondary);">—</p>
+        <h2 style="font-size: 1.1rem;" data-i18n="countries_affected_h">Countries Currently Involved</h2>
+        <p id="countries-list" style="margin-bottom: 1.25rem; color: var(--text-secondary);">—</p>
 
-        <h2 style="font-size: 1.2rem;" data-i18n="verified_h">Verification</h2>
+        <h2 style="font-size: 1.1rem;" data-i18n="verified_h">Verification</h2>
         <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
           <strong data-i18n="verified_by_label">Last manually verified by editor:</strong> <span id="verified-date">—</span>
         </p>
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
           <span id="verified-by">—</span>
         </p>
 
-        <h2 style="font-size: 1.2rem;" data-i18n="primary_sources_h">Primary Sources</h2>
+        <h2 style="font-size: 1.1rem;" data-i18n="primary_sources_h">Primary Sources</h2>
         <ul id="sources-list" style="color: var(--text-secondary);"></ul>
 
-        <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;" data-i18n="sources_disclaimer">
+        <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.875rem;" data-i18n="sources_disclaimer">
           Auto-update workflow runs every 30 minutes but does NOT silently change figures. It only flags new WHO Disease Outbreak News items for human review. Numbers are updated only when verified against a primary source.
         </p>
       </div>
@@ -145,7 +146,7 @@
   </main>
 
   <footer class="footer">
-    <p data-i18n="footer_disclaimer">HantaVirusTracker is an independent tracking project. Data is aggregated from public sources including WHO and CDC. Not affiliated with any government health agency.</p>
+    <p data-i18n="footer_disclaimer">ANDES Virus Tracker is an independent tracking project. Data is aggregated from public health reports. Not affiliated with any government health agency.</p>
     <p data-i18n="footer_credits">Built for public awareness. Always consult official sources for medical guidance.</p>
   </footer>
 
@@ -155,5 +156,6 @@
   <script src="js/main.js"></script>
   <script src="js/counters.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>
