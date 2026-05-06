@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1a0505"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="virusCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="60%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="200" cy="200" r="200" fill="url(#bg)"/>
+
+  <!-- Outer pulse ring -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.25"/>
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.4"/>
+
+  <!-- Virus particle (centered, upper portion) -->
+  <g transform="translate(200, 165)" filter="url(#glow)">
+    <!-- Spike proteins around the perimeter -->
+    <g fill="#dc2626">
+      <!-- Generate 16 spikes evenly distributed -->
+      <g transform="rotate(0)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(22.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(45)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(67.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(90)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(112.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(135)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(157.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(180)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(202.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(225)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(247.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(270)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(292.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(315)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+      <g transform="rotate(337.5)"><rect x="-4" y="-78" width="8" height="20" rx="3"/><circle cx="0" cy="-82" r="6"/></g>
+    </g>
+    <!-- Virus body -->
+    <circle r="65" fill="url(#virusCore)" stroke="#fca5a5" stroke-width="1.5" opacity="0.95"/>
+    <!-- Inner texture rings -->
+    <circle r="48" fill="none" stroke="#fca5a5" stroke-width="1" opacity="0.5"/>
+    <circle r="30" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.4"/>
+    <circle r="14" fill="#fff" opacity="0.85"/>
+  </g>
+
+  <!-- ANDES text -->
+  <text x="200" y="320" text-anchor="middle" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="44" letter-spacing="6">ANDES</text>
+
+  <!-- VIRUS TRACKER subtext -->
+  <text x="200" y="355" text-anchor="middle" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="4">VIRUS TRACKER</text>
+</svg>
