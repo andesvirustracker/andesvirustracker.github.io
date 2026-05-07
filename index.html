@@ -67,11 +67,18 @@
           </div>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <figure class="hero-particle">
-          <img class="hero-particle-img" src="assets/social/virus-particle-isolated.png" alt="">
-        </figure>
-        <span class="hero-particle-caption">Andes hantavirus particle · 3D reference</span>
+      <div class="hero-visual">
+        <div class="hero-particle-stage">
+          <span class="hero-particle-slot" aria-hidden="true"></span>
+          <figure class="hero-particle" role="button" tabindex="0" aria-label="Tap to play 3D virus particle">
+            <img class="hero-particle-img" src="assets/social/virus-particle-isolated.png" alt="Andes hantavirus particle, 3D rendering">
+          </figure>
+        </div>
+        <button class="hero-particle-button" type="button">
+          <span class="hero-particle-button-dot" aria-hidden="true"></span>
+          <span>Tap me</span>
+        </button>
+        <span class="hero-particle-caption" aria-hidden="true">Andes hantavirus particle · 3D reference</span>
       </div>
     </div>
   </header>
@@ -174,6 +181,8 @@
       <p data-i18n="footer_credits">Built for public awareness. Always consult official sources for medical guidance.</p>
     </div>
   </footer>
+
+  <button class="particle-stop" type="button" hidden>Tap to stop</button>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>

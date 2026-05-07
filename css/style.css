@@ -359,36 +359,57 @@ body {
   color: var(--text-primary);
 }
 
-/* Hero side visual — free-floating 3D particle (transparent PNG that spins + zooms) */
+/* ===== HERO PARTICLE — tap to bounce as 3D object, tap to return ===== */
 .hero-visual {
   position: relative;
-  aspect-ratio: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.25rem;
+  min-height: 460px;
   perspective: 1400px;
 }
 
-/* Outer figure handles SCROLL-DRIVEN SCALE (set by JS via --zoom) */
-.hero-particle {
+.hero-particle-stage {
   position: relative;
-  width: 100%;
-  max-width: 420px;
+  width: min(100%, 420px);
   aspect-ratio: 1;
+}
+
+/* Invisible layout placeholder — keeps the slot reserved while particle is fixed */
+.hero-particle-slot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-particle {
+  position: absolute;
+  inset: 0;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(var(--zoom, 1));
-  transform-origin: 50% 50%;
-  transition: transform 0.08s linear;
-  will-change: transform;
-  /* Soft cast shadow under the particle to ground it on the page */
+  cursor: pointer;
+  outline: none;
   filter: drop-shadow(0 24px 24px rgba(20, 17, 15, 0.22))
           drop-shadow(0 6px 10px rgba(20, 17, 15, 0.14));
+  transition: filter 0.3s ease;
 }
 
-/* Inner image handles SLOW PERPETUAL ROTATION (CSS keyframe, independent of scroll) */
+.hero-particle:hover {
+  filter: drop-shadow(0 28px 32px rgba(20, 17, 15, 0.28))
+          drop-shadow(0 8px 14px rgba(185, 28, 28, 0.20));
+}
+
+.hero-particle:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 12px;
+  border-radius: 50%;
+}
+
 .hero-particle-img {
   width: 100%;
   height: 100%;
@@ -397,6 +418,8 @@ body {
   transform-origin: 50% 50%;
   animation: particle-spin 38s linear infinite;
   will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 @keyframes particle-spin {
@@ -408,11 +431,72 @@ body {
   .hero-particle-img { animation: none; }
 }
 
+/* Bouncing state — particle leaves flow and JS controls position via transform */
+.hero-particle.is-bouncing {
+  position: fixed;
+  inset: auto;
+  top: 0;
+  left: 0;
+  width: var(--bounce-size, 360px);
+  height: var(--bounce-size, 360px);
+  z-index: 9999;
+  transform-style: preserve-3d;
+}
+
+.hero-particle.is-bouncing .hero-particle-img {
+  animation: none;
+}
+
+/* Smooth return — CSS transition takes over from JS */
+.hero-particle.is-returning {
+  transition: transform 0.7s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* TAP ME button — under the particle */
+.hero-particle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(20, 17, 15, 0.14);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-particle-button:hover {
+  background: var(--accent-red);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(185, 28, 28, 0.32);
+}
+
+.hero-particle-button:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 3px;
+}
+
+.hero-particle-button[hidden] { display: none; }
+
+.hero-particle-button-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  animation: blink 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.hero-particle-button:hover .hero-particle-button-dot { background: var(--bg-primary); }
+
 .hero-particle-caption {
-  position: absolute;
-  bottom: -1.75rem;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--font-sans);
   font-size: 0.66rem;
   font-weight: 600;
@@ -420,6 +504,48 @@ body {
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+/* TAP TO STOP overlay — fixed at top of viewport during bounce */
+.particle-stop {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent-red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(185, 28, 28, 0.42);
+  animation: stop-button-in 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.particle-stop[hidden] { display: none; }
+
+.particle-stop:hover {
+  background: var(--accent-red-deep);
+  box-shadow: 0 10px 28px rgba(185, 28, 28, 0.55);
+}
+
+@keyframes stop-button-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Lock body scroll while particle is bouncing */
+body.particle-locked {
+  overflow: hidden;
 }
 
 /* ===== CONTAINER ===== */
