@@ -110,15 +110,29 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
-    // Defensive: if the viewport shrank, downsize the particle to fit
-    const cap = Math.min(vw, vh) - 60;
-    if (size > cap) {
-      size = Math.max(100, cap);
-      particle.style.setProperty('--bounce-size', size + 'px');
+    // Rotation-aware extension: a square rotated by θ has a bounding box
+    // wider by size * (|cosθ| + |sinθ| - 1) — peaks at ~0.414 × size at 45°.
+    // We clamp the position so the ROTATED bounding box stays inside the
+    // viewport, not just the unrotated square — otherwise the corners poke
+    // out as the ball spins.
+    const angleRad = rz * Math.PI / 180;
+    const ext = size * (Math.abs(Math.cos(angleRad)) + Math.abs(Math.sin(angleRad)) - 1) / 2;
+
+    // Defensive: if the viewport shrank below what the ball+rotation needs,
+    // downsize the particle on the fly so it can still fit.
+    const needed = size + 2 * ext + 8;
+    if (needed > vw || needed > vh) {
+      const newSize = Math.max(100, Math.floor(Math.min(vw, vh) / 1.5));
+      if (newSize < size) {
+        size = newSize;
+        particle.style.setProperty('--bounce-size', size + 'px');
+      }
     }
 
-    const maxX = Math.max(0, vw - size);
-    const maxY = Math.max(0, vh - size);
+    const minX = ext;
+    const minY = ext;
+    const maxX = Math.max(minX, vw - size - ext);
+    const maxY = Math.max(minY, vh - size - ext);
 
     // Gravity
     vy += GRAVITY;
@@ -127,9 +141,9 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
     y += vy;
 
     // Bounce off the four walls with 20% velocity loss each hit
-    if (x < 0)    { x = 0;    vx =  Math.abs(vx) * RESTITUTION; bumpSpin(); }
+    if (x < minX) { x = minX; vx =  Math.abs(vx) * RESTITUTION; bumpSpin(); }
     if (x > maxX) { x = maxX; vx = -Math.abs(vx) * RESTITUTION; bumpSpin(); }
-    if (y < 0)    { y = 0;    vy =  Math.abs(vy) * RESTITUTION; bumpSpin(); }
+    if (y < minY) { y = minY; vy =  Math.abs(vy) * RESTITUTION; bumpSpin(); }
     if (y > maxY) {
       y = maxY;
       vy = -Math.abs(vy) * RESTITUTION;
@@ -142,8 +156,8 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
     }
 
     // Final safety clamp (paranoid — should already be in range)
-    x = clamp(x, 0, maxX);
-    y = clamp(y, 0, maxY);
+    x = clamp(x, minX, maxX);
+    y = clamp(y, minY, maxY);
 
     rz += vrz;
 
