@@ -359,7 +359,12 @@ body {
   color: var(--text-primary);
 }
 
-/* ===== HERO PARTICLE — tap to bounce as 3D object, tap to return ===== */
+/* ===== HERO PARTICLE — tap to bounce as 3D sphere, tap to return ===== */
+/* NOTE: do NOT add perspective/transform/filter to .hero-visual or any ancestor
+   of .hero-particle. Those properties create a new containing block for fixed
+   descendants, which means our bouncing position:fixed particle would be
+   positioned relative to the .hero-visual box (somewhere in the middle-right
+   of the page) instead of the viewport — and would launch off-screen. */
 .hero-visual {
   position: relative;
   display: flex;
@@ -368,7 +373,6 @@ body {
   justify-content: center;
   gap: 1.25rem;
   min-height: 460px;
-  perspective: 1400px;
 }
 
 .hero-particle-stage {
