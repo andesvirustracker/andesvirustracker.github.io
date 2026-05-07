@@ -545,10 +545,8 @@ body {
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* Lock body scroll while particle is bouncing */
-body.particle-locked {
-  overflow: hidden;
-}
+/* (page scroll stays free while particle is bouncing — particle is fixed-position
+   and clamped to the viewport, so it can't be lost) */
 
 /* ===== CONTAINER ===== */
 .container {
