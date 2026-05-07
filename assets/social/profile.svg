@@ -1,63 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bgLight" cx="50%" cy="45%" r="70%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#FEF2F2"/>
+    <radialGradient id="paperBg" cx="48%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F2EC"/>
     </radialGradient>
-    <radialGradient id="virusCore" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="55%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#991b1b"/>
+    <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B91C1C" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#B91C1C" stop-opacity="0"/>
     </radialGradient>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="rgba(220,38,38,0.22)"/>
-    </filter>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="rgba(15,23,42,0.12)"/>
-    </filter>
   </defs>
 
-  <!-- White circle background -->
-  <circle cx="200" cy="200" r="200" fill="url(#bgLight)"/>
+  <!-- Cream paper background -->
+  <circle cx="200" cy="200" r="200" fill="url(#paperBg)"/>
 
-  <!-- Subtle outer ring -->
-  <circle cx="200" cy="200" r="188" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <!-- Editorial rule rings — hairline, restrained -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#C9C2B0" stroke-width="1"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#E2DED1" stroke-width="0.8"/>
 
-  <!-- Red accent ring -->
-  <circle cx="200" cy="200" r="178" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.18"/>
+  <!-- Top editorial label -->
+  <text x="200" y="92" text-anchor="middle"
+        fill="#837D74"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-weight="600"
+        font-size="11"
+        letter-spacing="4.5">EST. 2026 · GLOBAL TRACKER</text>
 
-  <!-- Virus particle (centered, upper area) -->
-  <g transform="translate(200, 160)" filter="url(#shadow)">
-    <!-- 16 spike proteins -->
-    <g fill="#dc2626">
-      <g transform="rotate(0)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(22.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(45)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(67.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(90)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(112.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(135)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(157.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(180)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(202.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(225)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(247.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(270)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(292.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(315)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-      <g transform="rotate(337.5)"><rect x="-3.5" y="-76" width="7" height="18" rx="3"/><circle cx="0" cy="-79" r="5.5"/></g>
-    </g>
-    <!-- Virus body -->
-    <circle r="62" fill="url(#virusCore)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <!-- Inner texture -->
-    <circle r="46" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-    <circle r="28" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <circle r="13" fill="rgba(255,255,255,0.9)"/>
-  </g>
+  <!-- Hairline rule under top label -->
+  <line x1="140" y1="105" x2="260" y2="105" stroke="#C9C2B0" stroke-width="0.8"/>
 
-  <!-- ANDES text -->
-  <text x="200" y="308" text-anchor="middle" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="46" letter-spacing="6">ANDES</text>
+  <!-- Outbreak indicator dot (center, with glow) -->
+  <circle cx="200" cy="155" r="35" fill="url(#dotGlow)"/>
+  <circle cx="200" cy="155" r="6" fill="#B91C1C"/>
 
-  <!-- VIRUS TRACKER subtext -->
-  <text x="200" y="342" text-anchor="middle" fill="#dc2626" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="4">VIRUS TRACKER</text>
+  <!-- Main wordmark — bold serif -->
+  <text x="200" y="232" text-anchor="middle"
+        fill="#14110F"
+        font-family="'Fraunces','Source Serif Pro',Georgia,serif"
+        font-weight="900"
+        font-size="68"
+        letter-spacing="-2">ANDES</text>
+
+  <!-- Italic descriptor — Fraunces italic -->
+  <text x="200" y="272" text-anchor="middle"
+        fill="#14110F"
+        font-family="'Fraunces','Source Serif Pro',Georgia,serif"
+        font-style="italic"
+        font-weight="500"
+        font-size="26"
+        letter-spacing="-0.4">virus tracker</text>
+
+  <!-- Hairline rule below wordmark -->
+  <line x1="155" y1="295" x2="245" y2="295" stroke="#C9C2B0" stroke-width="0.8"/>
+
+  <!-- Bottom editorial label -->
+  <text x="200" y="318" text-anchor="middle"
+        fill="#837D74"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-weight="600"
+        font-size="10"
+        letter-spacing="3">INDEPENDENT · PUBLIC HEALTH</text>
 </svg>

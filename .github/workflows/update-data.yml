@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update:
@@ -27,16 +28,18 @@ jobs:
           pip install requests beautifulsoup4 feedparser
 
       - name: Run scraper
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_cases.py
 
       - name: Commit & push if changed
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add data/cases.json
+          git add data/cases.json data/pending_review.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Auto-update case data [skip ci]"
+            git commit -m "Auto-check: refresh timestamp [skip ci]"
             git push
           fi

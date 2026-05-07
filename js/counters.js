@@ -27,8 +27,9 @@ async function loadCases() {
       if (el) el.textContent = data.verified_by;
     }
     if (data.verification_date) {
-      const el = document.getElementById('verified-date');
-      if (el) el.textContent = data.verification_date;
+      document.querySelectorAll('#verified-date, #hero-verified-date').forEach(el => {
+        el.textContent = data.verification_date;
+      });
     }
     if (Array.isArray(data.sources)) {
       const el = document.getElementById('sources-list');
