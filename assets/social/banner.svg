@@ -52,13 +52,13 @@
 
   <!-- 🔴 Red = ACTIVE confirmed cases -->
   <!-- Argentina (south of South America) -->
-  <g transform="translate(330, 410)">
+  <g transform="translate(408, 331)">
     <circle r="36" fill="url(#hotRed)"/>
     <circle r="7" fill="#B91C1C"/>
     <circle r="7" fill="none" stroke="#FBFAF7" stroke-width="1.4"/>
   </g>
   <!-- MV Hondius / off Cape Verde (Atlantic, between S.America and W.Africa) -->
-  <g transform="translate(465, 285)">
+  <g transform="translate(500, 242)">
     <circle r="42" fill="url(#hotRed)"/>
     <circle r="8" fill="#B91C1C"/>
     <circle r="8" fill="none" stroke="#FBFAF7" stroke-width="1.4"/>
@@ -66,13 +66,13 @@
 
   <!-- 🟠 Orange = CONTAINED -->
   <!-- Switzerland (Central Europe) -->
-  <g transform="translate(615, 178)">
+  <g transform="translate(585, 187)">
     <circle r="26" fill="url(#hotOrange)"/>
     <circle r="5.5" fill="#EA580C"/>
     <circle r="5.5" fill="none" stroke="#FBFAF7" stroke-width="1.2"/>
   </g>
   <!-- South Africa -->
-  <g transform="translate(648, 395)">
+  <g transform="translate(640, 317)">
     <circle r="26" fill="url(#hotOrange)"/>
     <circle r="5.5" fill="#EA580C"/>
     <circle r="5.5" fill="none" stroke="#FBFAF7" stroke-width="1.2"/>
@@ -80,22 +80,22 @@
 
   <!-- 🟡 Yellow = SURVEILLANCE -->
   <!-- Chile (west coast S.America) -->
-  <g transform="translate(312, 395)">
+  <g transform="translate(374, 329)">
     <circle r="20" fill="url(#hotYellow)"/>
     <circle r="4" fill="#D97706"/>
   </g>
   <!-- Brazil -->
-  <g transform="translate(345, 350)">
+  <g transform="translate(436, 298)">
     <circle r="22" fill="url(#hotYellow)"/>
     <circle r="4" fill="#D97706"/>
   </g>
   <!-- Spain (Iberia) -->
-  <g transform="translate(560, 215)">
+  <g transform="translate(555, 198)">
     <circle r="20" fill="url(#hotYellow)"/>
     <circle r="4" fill="#D97706"/>
   </g>
   <!-- Namibia (south-western Africa) -->
-  <g transform="translate(620, 380)">
+  <g transform="translate(611, 310)">
     <circle r="18" fill="url(#hotYellow)"/>
     <circle r="3.5" fill="#D97706"/>
   </g>
