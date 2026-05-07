@@ -107,22 +107,26 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
   function tick() {
     if (state !== 'bouncing') { raf = null; return; }
 
+    // 1) Advance rotation FIRST so the extension we compute matches what
+    //    actually renders this frame. (Updating rz after the clamp meant the
+    //    rendered rotation extension was slightly larger than the one used
+    //    to compute the bounds, leaking ~5 px past the edges.)
+    rz += vrz;
+
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
     // Rotation-aware extension: a square rotated by θ has a bounding box
     // wider by size * (|cosθ| + |sinθ| - 1) — peaks at ~0.414 × size at 45°.
-    // We clamp the position so the ROTATED bounding box stays inside the
-    // viewport, not just the unrotated square — otherwise the corners poke
-    // out as the ball spins.
+    // We add a small extra safety pad in case sub-pixel rounding still bites.
     const angleRad = rz * Math.PI / 180;
-    const ext = size * (Math.abs(Math.cos(angleRad)) + Math.abs(Math.sin(angleRad)) - 1) / 2;
+    const ext = size * (Math.abs(Math.cos(angleRad)) + Math.abs(Math.sin(angleRad)) - 1) / 2 + 2;
 
-    // Defensive: if the viewport shrank below what the ball+rotation needs,
-    // downsize the particle on the fly so it can still fit.
+    // Defensive: if the viewport shrank below what (ball + rotation) needs,
+    // downsize the particle so it can still fit.
     const needed = size + 2 * ext + 8;
     if (needed > vw || needed > vh) {
-      const newSize = Math.max(100, Math.floor(Math.min(vw, vh) / 1.5));
+      const newSize = Math.max(100, Math.floor(Math.min(vw, vh) / 1.55));
       if (newSize < size) {
         size = newSize;
         particle.style.setProperty('--bounce-size', size + 'px');
@@ -134,13 +138,14 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
     const maxX = Math.max(minX, vw - size - ext);
     const maxY = Math.max(minY, vh - size - ext);
 
-    // Gravity
+    // 2) Gravity
     vy += GRAVITY;
 
+    // 3) Integrate position
     x += vx;
     y += vy;
 
-    // Bounce off the four walls with 20% velocity loss each hit
+    // 4) Bounce off the four walls with 20% velocity loss each hit
     if (x < minX) { x = minX; vx =  Math.abs(vx) * RESTITUTION; bumpSpin(); }
     if (x > maxX) { x = maxX; vx = -Math.abs(vx) * RESTITUTION; bumpSpin(); }
     if (y < minY) { y = minY; vy =  Math.abs(vy) * RESTITUTION; bumpSpin(); }
@@ -155,11 +160,9 @@ document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el))
       if (Math.abs(vy) < 1.2) vy = 0;
     }
 
-    // Final safety clamp (paranoid — should already be in range)
+    // 5) Final safety clamp (paranoid — should already be in range)
     x = clamp(x, minX, maxX);
     y = clamp(y, minY, maxY);
-
-    rz += vrz;
 
     applyTransform();
     raf = requestAnimationFrame(tick);
