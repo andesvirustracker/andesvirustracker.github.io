@@ -1,13 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
   <defs>
-    <radialGradient id="hotspotGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#B91C1C" stop-opacity="0.55"/>
-      <stop offset="55%"  stop-color="#B91C1C" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#B91C1C" stop-opacity="0"/>
+    <clipPath id="virusCircle">
+      <circle cx="1180" cy="250" r="190"/>
+    </clipPath>
+    <filter id="imgShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="rgba(20,17,15,0.18)"/>
+    </filter>
+    <radialGradient id="innerVignette" cx="50%" cy="50%" r="55%">
+      <stop offset="65%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#14110F" stop-opacity="0.28"/>
     </radialGradient>
-    <radialGradient id="hotspotGlowLg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#B91C1C" stop-opacity="0.6"/>
-      <stop offset="60%"  stop-color="#B91C1C" stop-opacity="0.16"/>
+    <radialGradient id="echoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#B91C1C" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="#B91C1C" stop-opacity="0"/>
     </radialGradient>
   </defs>
@@ -15,10 +19,10 @@
   <!-- Warm off-white paper -->
   <rect width="1500" height="500" fill="#FBFAF7"/>
 
-  <!-- Hairline editorial rule, top -->
+  <!-- Top editorial rule -->
   <rect x="0" y="0" width="1500" height="2" fill="#14110F"/>
 
-  <!-- Brand label, top-left (well above profile-picture overlap zone) -->
+  <!-- Brand mark, top-left (above profile-pic overlap zone) -->
   <g transform="translate(60, 38)">
     <text x="0" y="0" fill="#14110F"
           font-family="'Fraunces','Source Serif Pro',Georgia,serif"
@@ -27,99 +31,79 @@
           letter-spacing="-0.5">ANDES <tspan font-style="italic" font-weight="500">virus tracker</tspan></text>
     <text x="0" y="20" fill="#837D74"
           font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-          font-weight="500"
+          font-weight="600"
           font-size="11"
-          letter-spacing="2">INDEPENDENT · PUBLIC HEALTH · EST. 2026</text>
+          letter-spacing="2.5">INDEPENDENT · PUBLIC HEALTH · EST. 2026</text>
   </g>
 
   <!-- Hairline divider under brand -->
-  <line x1="60" y1="92" x2="1440" y2="92" stroke="#E2DED1" stroke-width="0.8"/>
+  <line x1="60" y1="92" x2="900" y2="92" stroke="#E2DED1" stroke-width="0.8"/>
 
-  <!-- World map — clean line art, centered -->
-  <g transform="translate(180, 110)" stroke="#14110F" stroke-width="1.1" fill="none" stroke-linejoin="round" stroke-linecap="round">
-    <!-- North America -->
-    <path d="M 60 100 Q 90 60 160 55 Q 230 50 290 75 Q 330 100 340 145 Q 335 175 305 195 Q 275 200 245 195 L 220 215 Q 195 220 175 210 L 150 220 Q 110 215 85 190 Q 60 155 60 100 Z"/>
-    <!-- Greenland -->
-    <path d="M 360 50 Q 390 45 410 60 Q 415 80 395 95 Q 370 95 360 80 Q 355 65 360 50 Z"/>
-    <!-- Central America -->
-    <path d="M 290 200 Q 305 220 325 235 Q 345 250 345 270 Q 330 270 315 260 Q 300 240 290 220 Z"/>
-    <!-- South America -->
-    <path d="M 340 245 Q 370 250 390 285 Q 405 340 395 405 Q 380 460 360 480 L 345 490 Q 330 470 320 425 Q 315 365 325 305 Q 335 270 340 245 Z"/>
-    <!-- Europe -->
-    <path d="M 600 90 Q 660 80 715 95 Q 745 110 740 140 Q 720 160 685 165 Q 645 165 615 155 Q 585 140 580 115 Q 580 95 600 90 Z"/>
-    <!-- Iberia -->
-    <path d="M 565 165 Q 595 165 615 180 Q 615 200 590 200 Q 565 195 555 180 Q 555 168 565 165 Z"/>
-    <!-- Africa -->
-    <path d="M 610 195 Q 680 185 720 220 Q 745 270 745 325 Q 730 380 700 410 Q 670 425 645 415 Q 615 395 600 350 Q 590 295 595 240 Q 600 210 610 195 Z"/>
-    <!-- Madagascar -->
-    <path d="M 770 350 Q 785 350 790 375 Q 790 395 775 400 Q 765 390 765 370 Q 765 355 770 350 Z"/>
-    <!-- Asia (mainland) -->
-    <path d="M 740 80 Q 850 70 970 90 Q 1080 105 1140 130 Q 1180 150 1175 180 Q 1140 200 1080 200 Q 990 200 900 195 Q 815 185 760 165 Q 735 145 730 115 Q 730 90 740 80 Z"/>
-    <!-- Indian subcontinent -->
-    <path d="M 920 200 Q 950 200 970 220 Q 985 250 970 280 Q 945 295 925 280 Q 905 250 905 225 Q 905 205 920 200 Z"/>
-    <!-- SE Asia -->
-    <path d="M 1060 215 Q 1100 215 1115 240 Q 1115 260 1095 270 Q 1070 265 1055 245 Q 1050 225 1060 215 Z"/>
-    <!-- Indonesia/Philippines -->
-    <path d="M 1110 290 Q 1145 280 1180 290 Q 1195 305 1175 315 Q 1140 320 1115 310 Q 1100 300 1110 290 Z"/>
-    <path d="M 1155 245 Q 1175 245 1180 260 Q 1175 275 1160 275 Q 1148 268 1148 255 Q 1148 247 1155 245 Z"/>
-    <!-- Australia -->
-    <path d="M 1130 340 Q 1190 330 1240 350 Q 1265 370 1255 390 Q 1215 405 1170 400 Q 1135 390 1125 370 Q 1120 348 1130 340 Z"/>
-    <!-- Japan -->
-    <path d="M 1195 145 Q 1210 145 1215 165 Q 1215 180 1200 185 Q 1185 175 1185 160 Q 1185 148 1195 145 Z"/>
-    <!-- UK / Ireland -->
-    <path d="M 580 90 Q 595 90 600 105 Q 595 118 583 118 Q 572 110 575 95 Q 575 90 580 90 Z"/>
+  <!-- Section label -->
+  <text x="60" y="155" fill="#B91C1C"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-weight="700"
+        font-size="11"
+        letter-spacing="3.5">DISPATCH · 2026 ANDES HANTAVIRUS</text>
+
+  <!-- Editorial headline (mixed-weight serif) -->
+  <text x="60" y="225" fill="#14110F"
+        font-family="'Fraunces','Source Serif Pro',Georgia,serif"
+        font-weight="700"
+        font-size="48"
+        letter-spacing="-1.5">Live tracking of the</text>
+  <text x="60" y="280" fill="#14110F"
+        font-family="'Fraunces','Source Serif Pro',Georgia,serif"
+        font-style="italic"
+        font-weight="500"
+        font-size="48"
+        letter-spacing="-1.2">Andes hantavirus outbreak.</text>
+
+  <!-- Subhead / supporting line -->
+  <text x="60" y="320" fill="#4A4641"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-weight="400"
+        font-size="15"
+        letter-spacing="0.1">An independent public-health monitor — checked every 30 minutes.</text>
+
+  <!-- Subtle echo glows behind the main image circle (suggests the cluster motif from the photo) -->
+  <circle cx="930"  cy="135" r="55" fill="url(#echoGlow)"/>
+  <circle cx="1395" cy="380" r="65" fill="url(#echoGlow)"/>
+
+  <!-- Image frame: thin outer ring -->
+  <circle cx="1180" cy="250" r="195" fill="#F4F2EC"/>
+
+  <!-- The realistic virus photograph, circular-cropped -->
+  <g filter="url(#imgShadow)" clip-path="url(#virusCircle)">
+    <image href="virus-particle.jpg"
+           x="990" y="60"
+           width="380" height="380"
+           preserveAspectRatio="xMidYMid slice"/>
+    <!-- Inner vignette for editorial integration -->
+    <rect x="990" y="60" width="380" height="380" fill="url(#innerVignette)"/>
   </g>
 
-  <!-- Equator hairline (decorative, editorial) -->
-  <line x1="180" y1="335" x2="1440" y2="335" stroke="#E2DED1" stroke-width="0.6" stroke-dasharray="3,4"/>
+  <!-- Hairline ring around image (editorial frame) -->
+  <circle cx="1180" cy="250" r="190" fill="none" stroke="#14110F" stroke-width="1" opacity="0.35"/>
+  <circle cx="1180" cy="250" r="200" fill="none" stroke="#14110F" stroke-width="0.5" opacity="0.18"/>
 
-  <!-- Outbreak hotspots (positioned over the map, in center/right area to avoid profile-pic overlap) -->
+  <!-- Tiny editorial caption next to image -->
+  <text x="975" y="453" text-anchor="end" fill="#837D74"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-weight="600"
+        font-size="10"
+        letter-spacing="2"
+        font-style="italic">FIG. 1 · ANDES HANTAVIRUS PARTICLE</text>
 
-  <!-- 1. Cape Verde / MV Hondius (off W. Africa) -->
-  <g transform="translate(740, 282)">
-    <circle r="42" fill="url(#hotspotGlowLg)"/>
-    <circle r="22" fill="url(#hotspotGlow)"/>
-    <circle r="6" fill="#B91C1C"/>
-    <circle r="6" fill="none" stroke="#FBFAF7" stroke-width="1.2"/>
-  </g>
-
-  <!-- 2. Switzerland (Central Europe) -->
-  <g transform="translate(815, 222)">
-    <circle r="28" fill="url(#hotspotGlow)"/>
-    <circle r="4.5" fill="#B91C1C"/>
-    <circle r="4.5" fill="none" stroke="#FBFAF7" stroke-width="1"/>
-  </g>
-
-  <!-- 3. Argentina (S. America) -->
-  <g transform="translate(530, 425)">
-    <circle r="34" fill="url(#hotspotGlow)"/>
-    <circle r="5.5" fill="#B91C1C"/>
-    <circle r="5.5" fill="none" stroke="#FBFAF7" stroke-width="1.2"/>
-  </g>
-
-  <!-- 4. South Africa -->
-  <g transform="translate(880, 408)">
-    <circle r="28" fill="url(#hotspotGlow)"/>
-    <circle r="4.5" fill="#B91C1C"/>
-    <circle r="4.5" fill="none" stroke="#FBFAF7" stroke-width="1"/>
-  </g>
-
-  <!-- URL — small, bottom-right, editorial -->
-  <g transform="translate(1440, 460)">
-    <text x="0" y="0" text-anchor="end"
-          fill="#837D74"
-          font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-          font-weight="600"
-          font-size="11"
-          letter-spacing="2.5">VISIT</text>
-    <text x="0" y="20" text-anchor="end"
-          fill="#14110F"
+  <!-- URL — bottom right, editorial -->
+  <g transform="translate(60, 458)">
+    <text x="0" y="0" fill="#14110F"
           font-family="'Fraunces','Source Serif Pro',Georgia,serif"
           font-weight="700"
-          font-size="18"
-          letter-spacing="-0.3">andesvirustracker.github.io</text>
+          font-size="16"
+          letter-spacing="-0.2">andesvirustracker.github.io</text>
   </g>
 
-  <!-- Hairline editorial rule, bottom -->
+  <!-- Bottom editorial rule -->
   <rect x="0" y="498" width="1500" height="2" fill="#14110F"/>
 </svg>
